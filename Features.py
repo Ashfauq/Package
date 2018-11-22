@@ -3,6 +3,7 @@ import time
 import re
 import os
 import warnings
+import pickle
 warnings.filterwarnings("ignore")
 
 
@@ -32,6 +33,16 @@ def concat_folder(target_loc = 0,files = 0):
     op = op.reset_index(drop = True)
     os.chdir(old_dir)
     return op
+    
+def save(var,name):
+    with open(name,"wb") as f:
+        pickle.dump(var,f)
+        
+def load(name):
+    with open(name,"rb") as f:
+        loaded = pickle.load(f)
+        
+    return loaded
 
 def error_handle(dir = 0,files = []):
     for each in files:
