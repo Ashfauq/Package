@@ -2162,18 +2162,18 @@ class Newfile():
         self.data = self.data.rename(columns = self.change_list)
         # print(list(self.data))
         self.nil_list = [ self.c.a[i] for i,each in enumerate(self.c.b) if each == "nil"]
-        if "AuthorName" in self.nil_list:
-            self.data["AuthorName"] = "noname"
-        if "DocumentsKey" in self.nil_list:
-            self.data["DocumentsKey"] = [ each for each in range(0,self.data.shape[0])]
-        if "SourceURL" in self.nil_list:
-            self.data["SourceURL"] = "unavailable"
-        if "PublishedDatesKey" in self.nil_list:
+        if "Author" in self.nil_list:
+            self.data["Author"] = "noname"
+        if "Unique_id" in self.nil_list:
+            self.data["Unique_id"] = [ each for each in range(0,self.data.shape[0])]
+        if "Url" in self.nil_list:
+            self.data["Url"] = "unavailable"
+        if "Date" in self.nil_list:
             self.data["PublishedDatesKey"] = "20180101"
-        if "ChannelName" in self.nil_list:
-            self.data["ChannelName"] = "Twitter"
-        self.doc_col = "DocumentsKey"
-        self.date_col = "PublishedDatesKey"
+        if "Channel" in self.nil_list:
+            self.data["Channel"] = "Not specified"
+        # self.doc_col = "DocumentsKey"
+        # self.date_col = "PublishedDatesKey"
         # self.date_col = ""
     
         
